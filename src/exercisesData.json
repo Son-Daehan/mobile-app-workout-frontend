@@ -1,0 +1,265 @@
+{
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Bench Press",
+        "type": "Strength",
+        "primary_muscle_group": "Chest",
+        "secondary_muscle_groups": ["Shoulders", "Triceps"],
+        "equipment_required": ["Barbell", "Bench"],
+        "movement_type": "Compound",
+        "exercise_category": "Upper Body",
+        "exercise_subcategory": "Push",
+        "mechanical_type": "Push",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Maintain a neutral spine.",
+          "Keep elbows at a 45-degree angle.",
+          "Do not allow the bar to bounce off the chest."
+        ],
+        "alternativeExercises": [{"exercise_id": 2}, {"exercise_id": 3}]
+      },
+      {
+        "id": 2,
+        "name": "Pull Ups",
+        "type": "Strength",
+        "primary_muscle_group": "Back",
+        "secondary_muscle_groups": ["Biceps", "Shoulders"],
+        "equipment_required": ["Pull-up Bar"],
+        "movement_type": "Compound",
+        "exercise_category": "Upper Body",
+        "exercise_subcategory": "Pull",
+        "mechanical_type": "Pull",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Engage your lats before pulling up.",
+          "Avoid swinging your body.",
+          "Maintain a full range of motion."
+        ],
+        "alternativeExercises": [{"exercise_id": 1}, {"exercise_id": 4}]
+      },
+      {
+        "id": 3,
+        "name": "Deadlift",
+        "type": "Strength",
+        "primary_muscle_group": "Back",
+        "secondary_muscle_groups": ["Hamstrings", "Glutes", "Core"],
+        "equipment_required": ["Barbell"],
+        "movement_type": "Compound",
+        "exercise_category": "Full Body",
+        "exercise_subcategory": "Lift",
+        "mechanical_type": "Pull",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Keep the bar close to your body.",
+          "Maintain a flat back throughout the movement.",
+          "Drive through your heels."
+        ],
+        "alternativeExercises": [{"exercise_id": 5}, {"exercise_id": 6}]
+      },
+      {
+        "id": 4,
+        "name": "Squat",
+        "type": "Strength",
+        "primary_muscle_group": "Quadriceps",
+        "secondary_muscle_groups": ["Glutes", "Hamstrings", "Core"],
+        "equipment_required": ["Barbell"],
+        "movement_type": "Compound",
+        "exercise_category": "Lower Body",
+        "exercise_subcategory": "Push",
+        "mechanical_type": "Push",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Keep your chest up.",
+          "Push through your heels.",
+          "Do not let your knees cave inward."
+        ],
+        "alternativeExercises": [{"exercise_id": 7}, {"exercise_id": 8}]
+      },
+      {
+        "id": 5,
+        "name": "Overhead Press",
+        "type": "Strength",
+        "primary_muscle_group": "Shoulders",
+        "secondary_muscle_groups": ["Triceps", "Upper Chest"],
+        "equipment_required": ["Barbell"],
+        "movement_type": "Compound",
+        "exercise_category": "Upper Body",
+        "exercise_subcategory": "Push",
+        "mechanical_type": "Push",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Keep your core tight to prevent arching.",
+          "Press the bar in a straight line above your head.",
+          "Lower the bar slowly and under control."
+        ],
+        "alternativeExercises": [{"exercise_id": 1}, {"exercise_id": 9}]
+      },
+      {
+        "id": 6,
+        "name": "Lat Pulldown",
+        "type": "Strength",
+        "primary_muscle_group": "Back",
+        "secondary_muscle_groups": ["Biceps", "Shoulders"],
+        "equipment_required": ["Lat Pulldown Machine"],
+        "movement_type": "Compound",
+        "exercise_category": "Upper Body",
+        "exercise_subcategory": "Pull",
+        "mechanical_type": "Pull",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Pull the bar to your chest.",
+          "Avoid using momentum to pull the weight.",
+          "Control the bar on the way up and down."
+        ],
+        "alternativeExercises": [{"exercise_id": 2}, {"exercise_id": 3}]
+      },
+      {
+        "id": 7,
+        "name": "Romanian Deadlift",
+        "type": "Strength",
+        "primary_muscle_group": "Hamstrings",
+        "secondary_muscle_groups": ["Glutes", "Lower Back"],
+        "equipment_required": ["Barbell"],
+        "movement_type": "Compound",
+        "exercise_category": "Lower Body",
+        "exercise_subcategory": "Lift",
+        "mechanical_type": "Pull",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Keep your back straight and chest up.",
+          "Push your hips back as you lower the bar.",
+          "Avoid locking your knees."
+        ],
+        "alternativeExercises": [{"exercise_id": 4}, {"exercise_id": 5}]
+      },
+      {
+        "id": 8,
+        "name": "Barbell Row",
+        "type": "Strength",
+        "primary_muscle_group": "Back",
+        "secondary_muscle_groups": ["Biceps", "Core"],
+        "equipment_required": ["Barbell"],
+        "movement_type": "Compound",
+        "exercise_category": "Upper Body",
+        "exercise_subcategory": "Pull",
+        "mechanical_type": "Pull",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Keep your back flat.",
+          "Pull the bar toward your lower ribs.",
+          "Control the bar during the descent."
+        ],
+        "alternativeExercises": [{"exercise_id": 3}, {"exercise_id": 6}]
+      },
+      {
+        "id": 9,
+        "name": "Push Ups",
+        "type": "Bodyweight",
+        "primary_muscle_group": "Chest",
+        "secondary_muscle_groups": ["Shoulders", "Triceps"],
+        "equipment_required": [],
+        "movement_type": "Compound",
+        "exercise_category": "Upper Body",
+        "exercise_subcategory": "Push",
+        "mechanical_type": "Push",
+        "intended_purpose": "Endurance",
+        "energy_system": "Glycolytic",
+        "technique_tips": [
+          "Keep your body in a straight line.",
+          "Lower yourself until your chest almost touches the ground.",
+          "Do not let your hips sag."
+        ],
+        "alternativeExercises": [{"exercise_id": 1}, {"exercise_id": 5}]
+      },
+      {
+        "id": 10,
+        "name": "Lunges",
+        "type": "Bodyweight",
+        "primary_muscle_group": "Quadriceps",
+        "secondary_muscle_groups": ["Glutes", "Hamstrings"],
+        "equipment_required": [],
+        "movement_type": "Compound",
+        "exercise_category": "Lower Body",
+        "exercise_subcategory": "Push",
+        "mechanical_type": "Push",
+        "intended_purpose": "Endurance",
+        "energy_system": "Glycolytic",
+        "technique_tips": [
+          "Step forward and lower your hips until your knees are bent at 90 degrees.",
+          "Push back up through your front heel.",
+          "Maintain an upright posture."
+        ],
+        "alternativeExercises": [{"exercise_id": 4}, {"exercise_id": 7}]
+      },
+      {
+        "id": 11,
+        "name": "Bicep Curl",
+        "type": "Strength",
+        "primary_muscle_group": "Biceps",
+        "secondary_muscle_groups": ["Forearms"],
+        "equipment_required": ["Dumbbells", "Barbell"],
+        "movement_type": "Isolation",
+        "exercise_category": "Upper Body",
+        "exercise_subcategory": "Pull",
+        "mechanical_type": "Pull",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Keep elbows stationary throughout the movement.",
+          "Avoid swinging your body.",
+          "Focus on contracting the biceps."
+        ],
+        "alternativeExercises": [{"exercise_id": 12}, {"exercise_id": 13}]
+      },
+      {
+        "id": 12,
+        "name": "Tricep Pushdown",
+        "type": "Strength",
+        "primary_muscle_group": "Triceps",
+        "secondary_muscle_groups": [],
+        "equipment_required": ["Cable Machine"],
+        "movement_type": "Isolation",
+        "exercise_category": "Upper Body",
+        "exercise_subcategory": "Push",
+        "mechanical_type": "Push",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Keep elbows close to your body.",
+          "Control the motion and avoid jerking.",
+          "Fully extend your arms at the bottom."
+        ],
+        "alternativeExercises": [{"exercise_id": 1}, {"exercise_id": 5}]
+      },
+      {
+        "id": 13,
+        "name": "Dumbbell Lateral Raise",
+        "type": "Strength",
+        "primary_muscle_group": "Shoulders",
+        "secondary_muscle_groups": [],
+        "equipment_required": ["Dumbbells"],
+        "movement_type": "Isolation",
+        "exercise_category": "Upper Body",
+        "exercise_subcategory": "Push",
+        "mechanical_type": "Push",
+        "intended_purpose": "Strength",
+        "energy_system": "ATP-PC",
+        "technique_tips": [
+          "Lift the dumbbells to shoulder height.",
+          "Do not swing your body.",
+          "Focus on using your shoulders to lift the weight."
+        ],
+        "alternativeExercises": [{"exercise_id": 1}, {"exercise_id": 5}]
+      }
+    ]
+  }
+  

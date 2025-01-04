@@ -1,0 +1,367 @@
+{ "historical_workouts":
+  [
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-01-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-02-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-03-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-04-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-05-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-06-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-07-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-08-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-09-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-10-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "date": "2024-12-20T10:00:00Z",
+      "template_id": 1,
+      "template_name": "template_1",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscle": "chest",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Squat",
+          "primary_muscle": "leg",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        },
+        {
+          "name": "Dead Lift",
+          "primary_muscle": "back",
+          "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 140, "type":"Core"},
+            {"set":2, "reps": 12, "weight": 150, "type":"Core"}
+          ]
+        }
+      ]
+    }
+  ]
+}

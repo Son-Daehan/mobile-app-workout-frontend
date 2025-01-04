@@ -1,0 +1,31 @@
+{
+    "friends": ["user_456", "user_789"],
+    "followers": ["user_234", "user_987"],
+    "posts": [
+      {
+        "post_id": "post_001",
+        "content": "Had an amazing workout today, feel stronger!",
+        "post_time": "2024-12-20T18:00:00Z",
+        "likes": 23,
+        "comments": [
+          { "user_id": "user_456", "comment": "Great work!", "timestamp": "2024-12-20T18:30:00Z" }
+        ]
+      }
+    ],
+    "challenges": [
+      {
+        "challenge_id": "challenge_001",
+        "name": "100 Push-ups in a Day",
+        "description": "Complete 100 push-ups within 24 hours!",
+        "start_date": "2024-12-01",
+        "end_date": "2024-12-31",
+        "participants": ["user_123", "user_456"],
+        "status": "ongoing",  // Options: ongoing, completed, failed
+        "user_results": [
+          { "user_id": "user_123", "push_ups_completed": 50, "date": "2024-12-10" },
+          { "user_id": "user_456", "push_ups_completed": 100, "date": "2024-12-20" }
+        ]
+      }
+    ]
+  }
+  

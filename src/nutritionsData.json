@@ -1,0 +1,33 @@
+{
+    "daily_calories_goal": 2500,
+    "macros": {
+      "protein": 150,
+      "carbs": 300,
+      "fats": 70
+    },
+    "meal_log": [
+      {
+        "meal_id": "meal_1",
+        "meal_time": "2024-12-20T08:00:00Z",
+        "meal_type": "Breakfast",
+        "foods": [
+          { "food_id": "eggs", "quantity": 3, "calories": 210, "protein": 18, "carbs": 1, "fats": 15 },
+          { "food_id": "oats", "quantity": 50, "calories": 190, "protein": 7, "carbs": 35, "fats": 4 }
+        ],
+        "total_calories": 400
+      }
+    ],
+    "meal_plans": [
+      {
+        "plan_id": "plan_001",
+        "plan_name": "High Protein",
+        "plan_goals": "Muscle Gain",
+        "meal_suggestions": [
+          { "meal_type": "Breakfast", "food_suggestion": "Eggs, Oats" },
+          { "meal_type": "Lunch", "food_suggestion": "Chicken, Rice" },
+          { "meal_type": "Dinner", "food_suggestion": "Salmon, Veggies" }
+        ]
+      }
+    ]
+  }
+  

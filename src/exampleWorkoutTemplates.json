@@ -1,0 +1,157 @@
+{"example_workout_templates" : [
+{
+    "id": 3,
+    "template_name": "Lower Body Strength",
+    "description": "A workout designed to build upper body strength, with a focus on compound exercises.",
+    "exercises": [
+        {
+        "id": "4",
+        "name": "Squat",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "5",
+        "name": "Overhead Press",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "6",
+        "name": "Lat Pulldown",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        }
+    ]
+},
+{
+    "id": 4,
+    "template_name": "Lower Body Strength",
+    "description": "A workout designed to build upper body strength, with a focus on compound exercises.",
+    "exercises": [
+        {
+        "id": "4",
+        "name": "Squat",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "5",
+        "name": "Overhead Press",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "6",
+        "name": "Lat Pulldown",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        }
+    ]
+},
+{
+    "id": 5,
+    "template_name": "Lower Body Strength",
+    "description": "A workout designed to build upper body strength, with a focus on compound exercises.",
+    "exercises": [
+        {
+        "id": "4",
+        "name": "Squat",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "5",
+        "name": "Overhead Press",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "6",
+        "name": "Lat Pulldown",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        }
+    ]
+},
+{
+    "id": 6,
+    "template_name": "Lower Body Strength",
+    "description": "A workout designed to build upper body strength, with a focus on compound exercises.",
+    "exercises": [
+        {
+        "id": "4",
+        "name": "Squat",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "5",
+        "name": "Overhead Press",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "6",
+        "name": "Lat Pulldown",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        }
+    ]
+},
+{
+    "id": 7,
+    "template_name": "Lower Body Strength",
+    "description": "A workout designed to build upper body strength, with a focus on compound exercises.",
+    "exercises": [
+        {
+        "id": "4",
+        "name": "Squat",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "5",
+        "name": "Overhead Press",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        },
+        {
+        "id": "6",
+        "name": "Lat Pulldown",
+        "sets_and_reps": [
+            {"set":1, "reps": 10, "weight": 200, "rest_time":90},
+            {"set":2, "reps": 12, "weight": 200, "rest_time":90}
+        ]
+        }
+    ]
+}
+]}

@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+      {
+        "type": "workout",
+        "message": "Increase your bench press weight by 5kg for the next session to keep progressing!",
+        "recommendation_type": "progressive_overload",
+        "associated_goal": "Strength",
+        "exercise_id": "bench_press"
+      },
+      {
+        "type": "nutrition",
+        "message": "Increase your protein intake to 160g per day for better muscle recovery.",
+        "recommendation_type": "macros_adjustment",
+        "associated_goal": "Hypertrophy"
+      }
+    ]
+  }
+  

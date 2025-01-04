@@ -1,0 +1,34 @@
+{"users":
+    [
+        {
+            "id": 1,
+            "first_name": "Samuel",
+            "last_name": "Test",
+            "username": "sstest",
+            "email": "test@gmail.com",
+            "password_hash": "string",
+            "age": 30,
+            "height": 1.75,
+            "weight": 75,
+            "gender": "male",
+            "location": "New York, USA",
+            "bio": "Fitness enthusiast. Love pushing my limits.",
+            "profile_picture_url": "url",
+            "profile_visibility": "public",  // Options: public, private, friends_only
+            "fitness_level": "intermediate", // Options: beginner, intermediate, advanced
+            "preferred_workout_time": "morning",  // e.g., "morning", "evening"
+            "rest_days": ["Sunday", "Wednesday"],
+            "goal_type": "Strength",
+            "goal_target": "bench_press",
+            "custom_goals": [
+                { "goal_type": "Fat Loss", "target": "weight", "value": 70 },
+                { "goal_type": "Strength", "target": "deadlift", "value": 150 }
+            ],
+            "user_subscriptions": [
+                "premium_plan",
+                "nutrition_coaching"
+            ]
+        }
+    ]
+}
+  

@@ -1,0 +1,41 @@
+{ "schedules":
+    [
+        {
+            "id": "workout-1",
+            "scheduledDate": "2024-12-21",
+            "status": "upcoming",
+            "completedAt": null,
+            "templates": [
+                {"id": 2, "status": "upcoming"},
+                {"id": 1, "status": "missed"}
+            ]
+        },
+        {
+            "id": "workout-3",
+            "scheduledDate": "2024-12-22",
+            "status": "missed",
+            "completedAt": null,
+            "templates": [
+                {"id": 2, "status": "missed"}
+            ]
+        },
+        {
+            "id": "workout-3",
+            "scheduledDate": "2024-12-23",
+            "status": "missed",
+            "completedAt": null,
+            "templates": [
+                {"id": 2, "status": "missed"}
+            ]
+        },
+        {
+            "id": "workout-3",
+            "scheduledDate": "2024-12-24",
+            "status": "missed",
+            "completedAt": null,
+            "templates": [
+                {"id": 2, "status": "missed"}
+            ]
+        }
+    ]
+}
