@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import TemplatePreviewModal from "./TemplatePreviewModal";
 import TemplateDropdownModal from "./TemplateDropdownModal";
+import { Icon } from "react-native-elements";
 
 const TemplateWidget = forwardRef(
   ({ template, category, templateId, isActive, onPress }, ref) => {
@@ -51,7 +52,12 @@ const TemplateWidget = forwardRef(
               onPress={handleDropdownVisibility}
               onLayout={handleButtonLayout} // Track the layout position
             >
-              <Text style={styles.headerButtonText}>~</Text>
+              {/* <Text style={styles.headerButtonText}>~</Text> */}
+              <Icon
+                style={styles.headerIcon}
+                name="settings"
+                color="rgb(172, 167, 167)"
+              />
             </TouchableOpacity>
           </View>
           <View style={styles.bodyContainer}>
@@ -142,15 +148,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "white",
   },
-  headerButton: {
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    backgroundColor: "blue",
-    borderRadius: 4,
-  },
-  headerButtonText: {
+  // headerButton: {
+  //   paddingHorizontal: 8,
+  //   paddingVertical: 2,
+  //   backgroundColor: "blue",
+  //   borderRadius: 4,
+  // },
+  // headerButtonText: {
+  //   color: "white",
+  //   textAlign: "center",
+  // },
+  headerIcon: {
     color: "white",
-    textAlign: "center",
   },
   bodyContainer: {
     flexDirection: "column",
@@ -158,7 +167,7 @@ const styles = StyleSheet.create({
   },
 
   bodyText: {
-    color: "white",
+    color: "rgb(172, 167, 167)",
   },
 
   // Dropdown Styling

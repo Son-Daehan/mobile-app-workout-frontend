@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
   },
 
   modalContainer: {
-    width: "70%",
-    backgroundColor: "#fff",
+    width: "85%",
+    backgroundColor: "#1E2923",
     borderRadius: 10,
     padding: 15,
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
 
   closeButtonText: {
     fontSize: 24,
+    color: "red",
   },
 
   editButton: {
@@ -127,24 +128,29 @@ const styles = StyleSheet.create({
 
   editButtonText: {
     fontSize: 18,
+    color: "gray",
   },
 
   modalHeaderTitle: {
     fontSize: 18,
     fontWeight: 800,
+    color: "white",
   },
 
   modalBodyContainer: {
     maxHeight: 400,
   },
   exerciseContainer: {
-    backgroundColor: "#f9f9f9",
+    // backgroundColor: "1E2923",
+    borderColor: "gray",
+    borderWidth: ".5",
     padding: 5,
     borderRadius: 5,
     marginBottom: 10,
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
   },
   exerciseName: {
+    color: "white",
     fontSize: 16,
   },
   modalFooterContainer: {

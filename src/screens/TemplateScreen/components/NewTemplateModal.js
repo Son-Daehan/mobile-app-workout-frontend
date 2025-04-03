@@ -58,7 +58,7 @@ const NewTemplateModal = ({ modalVisible, closeModal }) => {
             </View>
 
             <View style={styles.modalBodyContainer}>
-              <Text>Template Name</Text>
+              <Text style={styles.bodyText}>Template Name</Text>
               <TextInput
                 editable
                 style={styles.modalBodyInput}
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
 
   modalContainer: {
     width: "90%",
-    backgroundColor: "#fff",
+    backgroundColor: "#1E2923",
     borderRadius: 10,
     padding: 15,
     shadowColor: "#000",
@@ -131,6 +131,11 @@ const styles = StyleSheet.create({
   modalHeaderTitle: {
     fontSize: 16,
     fontWeight: 800,
+    color: "white",
+  },
+
+  bodyText: {
+    color: "rgb(172, 167, 167)",
   },
 
   modalBodyContainer: {

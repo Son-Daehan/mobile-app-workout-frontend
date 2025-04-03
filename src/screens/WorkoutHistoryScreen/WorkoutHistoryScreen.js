@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     padding: 20,
     gap: 20,
     marginBottom: 40,
+    backgroundColor: "black",
   },
   headerContainer: {
     flexDirection: "row",
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 26,
     fontWeight: 600,
+    color: "white",
   },
   bodyContainer: {
     gap: 20,

@@ -32,9 +32,9 @@ const WorkoutHistoryCard = ({ workout }) => {
         <Text style={styles.dateText}>{parseAndFormatDate(workout?.date)}</Text>
       </View>
       <View style={styles.statsContainer}>
-        <Text>Stats</Text>
-        <Text>Stats</Text>
-        <Text>Stats</Text>
+        <Text style={styles.statsText}>Stats</Text>
+        <Text style={styles.statsText}>Stats</Text>
+        <Text style={styles.statsText}>Stats</Text>
       </View>
       <View style={styles.bodyContainer}>
         <View style={styles.bodyHeaderContainer}>
@@ -59,15 +59,10 @@ const WorkoutHistoryCard = ({ workout }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
-    borderRadius: 10,
+    backgroundColor: "#1E2923",
+    borderRadius: 5,
     padding: 15,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-    gap: 5,
+    gap: 3,
   },
   headerContainer: {
     flexDirection: "row",
@@ -76,15 +71,20 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 18,
     fontWeight: 600,
+    color: "white",
   },
   dateContainer: {},
   dateText: {
     fontSize: 14,
     fontWeight: 400,
+    color: "gray",
   },
   statsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  statsText: {
+    color: "gray",
   },
   bodyContainer: {
     flexDirection: "column",
@@ -96,12 +96,14 @@ const styles = StyleSheet.create({
   bodyHeaderText: {
     fontWeight: 500,
     width: "50%",
+    color: "white",
   },
   bodyContentContainer: {
     flexDirection: "row",
   },
   bodyContentText: {
     width: "50%",
+    color: "white",
   },
 
   footerContainer: {},

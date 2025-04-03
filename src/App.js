@@ -4,47 +4,45 @@ import { Provider, useDispatch } from "react-redux";
 import Store from "./redux/Store";
 import { useEffect } from "react";
 import {
-	fetchExercises,
-	fetchWorkoutHistory,
-	fetchWorkoutSchedules,
-	fetchWorkoutTemplates,
+  fetchExercises,
+  fetchWorkoutHistory,
+  fetchWorkoutSchedules,
+  fetchWorkoutTemplates,
 } from "./services/api";
 
-import { initHealthKit } from "./utils/AppleHealthPermission";
-
 export default function App() {
-	// const platformSpecificMessage =
-	// 	Platform.OS === "ios" ? "Running on iOS" : "Running on Android";
-	// console.log(platformSpecificMessage);
+  // const platformSpecificMessage =
+  // 	Platform.OS === "ios" ? "Running on iOS" : "Running on Android";
+  // console.log(platformSpecificMessage);
 
-	return (
-		<Provider store={Store}>
-			<AppContent />
-		</Provider>
-	);
+  return (
+    <Provider store={Store}>
+      <AppContent />
+    </Provider>
+  );
 }
 
 // This component contains the dispatch logic
 function AppContent() {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(fetchExercises());
-		dispatch(fetchWorkoutTemplates());
-		dispatch(fetchWorkoutHistory());
-		dispatch(fetchWorkoutSchedules());
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchExercises());
+    dispatch(fetchWorkoutTemplates());
+    dispatch(fetchWorkoutHistory());
+    dispatch(fetchWorkoutSchedules());
+  }, [dispatch]);
 
-	return (
-		<SafeAreaView style={styles.container}>
-			<Navigation />
-		</SafeAreaView>
-	);
+  return (
+    <SafeAreaView style={styles.container}>
+      <Navigation />
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#000000",
-	},
+  container: {
+    flex: 1,
+    backgroundColor: "#000000",
+  },
 });

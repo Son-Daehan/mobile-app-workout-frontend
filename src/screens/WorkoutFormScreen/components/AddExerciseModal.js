@@ -19,7 +19,6 @@ const AddExerciseModal = ({
   const [filteredExercises, setFilteredExercises] = useState(exercises);
 
   const handleAddExercise = (exercise) => {
-    console.log(exercise);
     const newExercise = {
       exercise: exercise,
       sets: [

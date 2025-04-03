@@ -84,6 +84,13 @@ const ExerciseCard = ({
       const currentExercise = { ...updatedExercises[exerciseIndex] };
       const updatedSets = [...currentExercise.sets];
 
+      // Check if reps or weight is null before updating status
+      const currentSet = updatedSets[setIndex];
+      if (currentSet.reps === null || currentSet.weight === null) {
+        alert("Please fill in reps and weight before marking as complete.");
+        return prevTemplate; // Prevent status change if missing reps or weight
+      }
+
       if (updatedSets[setIndex]) {
         updatedSets[setIndex] = {
           ...updatedSets[setIndex],

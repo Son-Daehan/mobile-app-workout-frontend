@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 10,
+    color: "white",
   },
   workoutItem: {
     flexDirection: "row",
@@ -76,38 +77,34 @@ const styles = StyleSheet.create({
   },
   workoutText: {
     fontSize: 16,
-    color: "white",
+    color: "black",
   },
   noWorkoutsText: {
     textAlign: "center",
     fontSize: 16,
-    color: "white",
+    color: "black",
   },
   body: {
-    padding: 5, // Padding for the container
-    backgroundColor: "#f9f9f9", // Light background color
-    borderRadius: 8, // Rounded corners
-    shadowColor: "#000", // Shadow color for the container
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset
-    shadowOpacity: 0.1, // Shadow opacity
-    shadowRadius: 6, // Shadow radius
-    elevation: 5, // Elevation for Android
-    // height: 100,
+    marginTop: 5,
+    gap: 5,
+    height: 3 * 50,
+    overflow: "hidden",
   },
   bodyItemsContainer: {
-    flexDirection: "row",
-    gap: 20,
-    // justifyContent: "space-between",
-    padding: 10, // Padding for the container
-    backgroundColor: "#f9f9f9", // Light background color
-    borderRadius: 8, // Rounded corners
-    shadowColor: "#000", // Shadow color for the container
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset
-    shadowOpacity: 0.1, // Shadow opacity
-    shadowRadius: 6, // Shadow radius
-    elevation: 5, // Elevation for Android
+    flexDirection: "row", // Keep this to align items horizontally
+    justifyContent: "flex-start", // Ensure items are aligned to the start
+    alignItems: "center", // Make sure items are centered vertically
+    padding: 15, // Increase padding for more touch area
+    backgroundColor: "black", // Light background color
+    borderRadius: 5, // Rounded corners
+    marginBottom: 5, // Add spacing between items
+    width: "100%", // Ensure full width for better touch area
+    height: 50,
+    gap: 15,
   },
-  bodyItemText: {},
+  bodyItemText: {
+    color: "white",
+  },
 });
 
 export default WorkoutList;

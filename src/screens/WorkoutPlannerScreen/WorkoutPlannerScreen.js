@@ -33,28 +33,20 @@ const WorkoutPlannerScreen = () => {
   return (
     <View style={styles.container}>
       <Header title="Workout Planner" />
-      <ScrollView>
-        <View style={styles.bodyContainer}>
-          <WorkoutPlanner />
-          {/* <Calendar /> */}
-        </View>
-      </ScrollView>
-      <View style={styles.footerContainer}>
-        <TouchableOpacity>
-          <Icon name="arrow-left" type="feather" color="blue" size={30} />
-        </TouchableOpacity>
-
+      <View style={styles.quickWorkoutContainer}>
         <TouchableOpacity
           style={styles.startWorkoutButton}
           onPress={() => navigateToBlankActiveWorkout()}
         >
           <Text style={styles.buttonText}>START QUICK WORKOUT</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Icon name="arrow-right" type="feather" color="blue" size={30} />
-        </TouchableOpacity>
       </View>
+      <ScrollView>
+        <View style={styles.bodyContainer}>
+          <WorkoutPlanner />
+          {/* <Calendar /> */}
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -73,12 +65,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#000000",
   },
-  footerContainer: {
+  quickWorkoutContainer: {
     // padding: 20,
     paddingHorizontal: 20,
     paddingVertical: 10,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
   },
   startWorkoutButton: {
@@ -86,6 +78,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingHorizontal: 80,
     borderRadius: 6,
+    width: "100%",
     // marginBottom: 10,
   },
   buttonText: {

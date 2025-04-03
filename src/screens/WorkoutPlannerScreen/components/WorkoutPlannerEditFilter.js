@@ -57,7 +57,7 @@ const WorkoutPlannerEditFilter = ({ templates, setFilteredTemplates }) => {
           placeholder="Search for template..."
           onChangeText={(text) => setSearchValue(text)}
           editable
-          placeholderTextColor="#aaa"
+          placeholderTextColor="gray"
           style={styles.input}
         />
       </View>
@@ -88,22 +88,20 @@ const WorkoutPlannerEditFilter = ({ templates, setFilteredTemplates }) => {
 // Styles for the filter component
 const styles = StyleSheet.create({
   container: {
-    padding: 5, // Padding for the container
-    backgroundColor: "#f9f9f9", // Light background color
-    borderRadius: 8, // Rounded corners
-    shadowColor: "#000", // Shadow color for the container
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset
-    shadowOpacity: 0.1, // Shadow opacity
-    shadowRadius: 6, // Shadow radius
-    elevation: 5, // Elevation for Android
+    // padding: 5, // Padding for the container
+    // backgroundColor: "#f9f9f9", // Light background color
+    borderRadius: 5, // Rounded corners
   },
   input: {
     height: 40,
-    margin: 12,
+    width: "100%",
+    // padding: 20,
+    backgroundColor: "#333",
+    paddingHorizontal: 10,
     borderWidth: 1,
-    padding: 10,
     borderRadius: 8, // Rounded corners
-    borderColor: "rgba(0, 0, 0, 0.3)", // Use a semi-transparent black for a blended effect
+    borderColor: "grey", // Use a semi-transparent black for a blended effect
+    color: "white",
   },
   filterContainer: {},
   customerPickerContainer: {

@@ -11,9 +11,6 @@ const ActiveWorkoutFooter = ({ setAddExerciseModalVisible }) => {
         >
           <Text style={styles.text}>Add Exercise</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.cancelButton]}>
-          <Text style={styles.text}>Cancel</Text>
-        </TouchableOpacity>
       </View>
     </React.Fragment>
   );

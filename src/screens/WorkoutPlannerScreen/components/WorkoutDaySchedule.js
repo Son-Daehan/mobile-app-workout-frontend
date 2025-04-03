@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   workoutItem: {
     flexDirection: "row",
     marginBottom: 5,
-    width: 200,
+    width: 190,
     gap: 5,
   },
   workoutHeaderText: {
@@ -145,13 +145,10 @@ const styles = StyleSheet.create({
   },
   workoutText: {
     fontSize: 16,
-    backgroundColor: "#f8f8f8",
+    color: "white",
+    width: "100%",
+    backgroundColor: "#183C03",
     borderRadius: 5,
-    shadowColor: "#000", // Shadow color
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset
-    shadowOpacity: 0.2, // Shadow opacity
-    shadowRadius: 3, // Shadow blur radius
-    elevation: 3, // Shadow for Android
     padding: 5,
   },
   addWorkoutButton: {

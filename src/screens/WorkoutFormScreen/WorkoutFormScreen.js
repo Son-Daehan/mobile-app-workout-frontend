@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addWorkoutTemplate, updateWorkoutTemplate } from "../../services/api";
 import { Icon } from "react-native-elements";
 import AddExerciseModal from "./components/AddExerciseModal";
-import TemplateSettingsDropdown from "./components/TemplateSettingsDropdown";
+import TemplateSettingsDropdownModal from "./components/TemplateSettingsDropdownModal";
 import ExerciseCard from "./components/ExerciseCard";
 import ActiveWorkoutFooter from "../ActiveWorkoutScreen/components/ActiveWorkoutFooter";
 
@@ -21,10 +21,11 @@ const WorkoutFormScreen = ({ route, navigation }) => {
   const dispatch = useDispatch();
   const [template, setTemplate] = useState([]);
   const [addExerciseModalVisible, setAddExerciseModalVisible] = useState(false);
+  const [templateDropdownModalVisible, setTemplateDropdownModalVisible] =
+    useState(false);
 
   useEffect(() => {
     const currentTemplate = templates?.find((t) => t.id === templateId);
-    console.log("CURRENT TEMPLATE", currentTemplate);
     if (isNewTemplate && !currentTemplate) {
       setTemplate({
         id: templates.length + 1,
@@ -83,19 +84,17 @@ const WorkoutFormScreen = ({ route, navigation }) => {
 
         <View style={styles.subHeaderContainer}>
           <View style={[styles.leftItem, styles.headerItem]}>
-            <Text>Test</Text>
+            <Text style={{ color: "white" }}>Test</Text>
           </View>
           <View style={[styles.centerItem, styles.headerItem]}>
             <Text style={styles.headerTitle}>{template?.template_name}</Text>
           </View>
-          <TemplateSettingsDropdown
-            // onDuplicate={() => {/* Logic for duplicating the template */}}
+          <TouchableOpacity
+            onPress={() => setTemplateDropdownModalVisible(true)}
             style={[styles.rightItem, styles.headerItem]}
-            onDelete={() => {
-              // Logic for deleting
-              navigation.goBack();
-            }}
-          />
+          >
+            <Icon name="settings" type="material" color="gray" size={32} />
+          </TouchableOpacity>
         </View>
 
         <ScrollView>
@@ -119,6 +118,13 @@ const WorkoutFormScreen = ({ route, navigation }) => {
         closeModal={() => setAddExerciseModalVisible(false)}
         exercises={exercises}
         setTemplate={setTemplate}
+      />
+      <TemplateSettingsDropdownModal
+        onDelete={() => {
+          navigation.goBack();
+        }}
+        modalVisible={templateDropdownModalVisible}
+        closeModal={() => setTemplateDropdownModalVisible(false)}
       />
     </>
   );

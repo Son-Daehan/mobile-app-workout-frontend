@@ -1,22 +1,32 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Modal, StyleSheet, Text, TouchableOpacity, View, Dimensions } from 'react-native';
-import { Icon } from 'react-native-elements';
+import React, { useState, useRef, useEffect } from "react";
+import {
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Dimensions,
+} from "react-native";
+import { Icon } from "react-native-elements";
 
-const TemplateSettingsDropdown = ({ onOptionSelect }) => {
-  const [modalVisible, setModalVisible] = useState(false);
+const TemplateSettingsDropdownModal = ({
+  onOptionSelect,
+  closeModal,
+  modalVisible,
+}) => {
   const [position, setPosition] = useState({ top: 0, left: 0, width: 0 });
   const [modalWidth, setModalWidth] = useState(0);
   const buttonRef = useRef(null);
 
-  const options = ['Rename Template', 'Delete Template', 'Duplicate Template'];
-  const screenWidth = Dimensions.get('window').width;
+  const options = ["Rename Template", "Delete Template", "Duplicate Template"];
+  const screenWidth = Dimensions.get("window").width;
 
   // Function to handle option selection
   const handleOptionSelect = (option) => {
     if (onOptionSelect) {
       onOptionSelect(option);
     }
-    setModalVisible(false);
+    closeModal();
   };
 
   // Show the menu and measure the button's position
@@ -38,22 +48,23 @@ const TemplateSettingsDropdown = ({ onOptionSelect }) => {
   }, [options]);
 
   // Adjust modal position to stay within the screen width
-  const adjustedLeft = position.left + modalWidth > screenWidth
-    ? position.left - (position.left + modalWidth - screenWidth) // Shift to the left if it's going out of screen
-    : position.left;
+  const adjustedLeft =
+    position.left + modalWidth > screenWidth
+      ? position.left - (position.left + modalWidth - screenWidth) // Shift to the left if it's going out of screen
+      : position.left;
 
   return (
-    <View>
-      <TouchableOpacity ref={buttonRef} onPress={showMenu}>
+    <>
+      {/* <TouchableOpacity ref={buttonRef} onPress={showMenu}>
         <Icon name="settings" type="material" color="gray" size={32} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       {/* Modal for dropdown options */}
       <Modal
         animationType="fade"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
+        onRequestClose={closeModal}
       >
         <View style={styles.modalOverlay}>
           <View
@@ -61,14 +72,17 @@ const TemplateSettingsDropdown = ({ onOptionSelect }) => {
               styles.modalContent,
               {
                 top: position.top + 5, // Space below the button
-                left: adjustedLeft,    // Adjusted left position to prevent overflow
+                left: adjustedLeft, // Adjusted left position to prevent overflow
                 width: modalWidth + 20, // Dynamically set width based on text
               },
             ]}
           >
             {/* Menu Items */}
             {options.map((option) => (
-              <TouchableOpacity key={option} onPress={() => handleOptionSelect(option)}>
+              <TouchableOpacity
+                key={option}
+                onPress={() => handleOptionSelect(option)}
+              >
                 <Text style={styles.menuItem} onLayout={measureTextWidth}>
                   {option}
                 </Text>
@@ -77,22 +91,22 @@ const TemplateSettingsDropdown = ({ onOptionSelect }) => {
           </View>
         </View>
       </Modal>
-    </View>
+    </>
   );
 };
 
-export default TemplateSettingsDropdown;
+export default TemplateSettingsDropdownModal;
 
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalContent: {
-    position: 'absolute',
-    backgroundColor: 'white',
+    position: "absolute",
+    backgroundColor: "white",
     padding: 10,
     borderRadius: 10,
     maxWidth: 300, // Maximum width of the modal
@@ -100,6 +114,6 @@ const styles = StyleSheet.create({
   menuItem: {
     padding: 10,
     fontSize: 16,
-    color: 'black',
+    color: "black",
   },
 });

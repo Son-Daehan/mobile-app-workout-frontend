@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   container: {
     // padding: 5,
     backgroundColor: "#000000",
-    borderRadius: 8,
+    borderRadius: 5,
     flex: 1,
   },
   headerTitle: {

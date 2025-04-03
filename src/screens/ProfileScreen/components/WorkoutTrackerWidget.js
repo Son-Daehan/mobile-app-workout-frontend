@@ -58,7 +58,7 @@ const WorkoutTrackerWidget = () => {
       onPress={handleNavigate}
       style={[styles.container, { width: containerWidth }]}
     >
-      <Text style={styles.title}>Workouts Per Week</Text>
+      <Text style={styles.title}>Workouts History</Text>
       {/* <LineChart
         data={{
           labels: labels.length ? labels : ["No Data"],
@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: "bold",
-    marginBottom: 10,
     color: "white",
   },
   chart: {

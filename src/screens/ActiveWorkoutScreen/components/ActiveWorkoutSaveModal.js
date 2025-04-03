@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { handleFinish } from "./helpers";
 
@@ -14,6 +14,26 @@ const ActiveWorkoutSaveModal = ({
   dispatch,
 }) => {
   const navigate = useNavigation();
+  const [workoutComplete, setWorkoutComplete] = useState(true);
+
+  const checkWorkoutCompletion = () => {
+    let isComplete = true;
+
+    template?.exercises?.map((exercise) => {
+      exercise?.sets?.map((set) => {
+        if (set?.status === "Not Complete") {
+          isComplete = false;
+        }
+      });
+    });
+    setWorkoutComplete(isComplete);
+  };
+
+  useEffect(() => {
+    if (modalVisible) {
+      checkWorkoutCompletion();
+    }
+  }, [modalVisible]);
 
   return (
     <Modal
@@ -25,7 +45,14 @@ const ActiveWorkoutSaveModal = ({
       <View style={styles.overlay}>
         <View style={styles.modalContainer}>
           <View>
-            <Text>Workout Finished!</Text>
+            <Text style={styles.title}>Workout Finished!</Text>
+          </View>
+          <View>
+            {!workoutComplete && (
+              <Text style={styles.message}>
+                Incomplete sets will not be saved.
+              </Text>
+            )}
           </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
@@ -56,22 +83,24 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: "70%",
-    backgroundColor: "white",
+    backgroundColor: "#1E2923",
     borderRadius: 10,
     padding: 20,
     alignItems: "center",
     elevation: 10,
-    gap: 20,
+    gap: 5,
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 15,
+    color: "white",
   },
   message: {
-    fontSize: 16,
+    fontSize: 14,
     textAlign: "center",
     marginBottom: 20,
+    color: "red",
   },
   buttonContainer: {
     flexDirection: "row",

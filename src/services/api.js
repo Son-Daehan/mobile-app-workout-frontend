@@ -1,8 +1,48 @@
 // api.js
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axiosInstance from "./axiosInstance";
 
 const baseURL = "http://192.168.127.135:8000/api";
+
+// TOKEN
+export const loginUser = createAsyncThunk(
+  "auth/loginUser", // Action type string
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${baseURL}/token/`, data);
+      return response.data; // Return the response to be used in the fulfilled action
+    } catch (error) {
+      // Handle the error, sending it as the action payload
+      console.error("Error saving user:", error);
+      return rejectWithValue(error.message); // Reject with error message
+    }
+  }
+);
+
+// USER
+export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
+  try {
+    const response = await axios.get(`${baseURL}/users/`);
+    return response.data; // Return the response data directly
+  } catch (error) {
+    throw new Error("Failed to fetch exercises: " + error.message);
+  }
+});
+
+export const signupUser = createAsyncThunk(
+  "auth/signupUser", // Action type string
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${baseURL}/users/create/`, data);
+      return response.data; // Return the response to be used in the fulfilled action
+    } catch (error) {
+      // Handle the error, sending it as the action payload
+      console.error("Error saving user:", error);
+      return rejectWithValue(error.message); // Reject with error message
+    }
+  }
+);
 
 // Create an async thunk for fetching exercises
 export const fetchExercises = createAsyncThunk(
@@ -162,6 +202,170 @@ export const deleteWorkoutSchedule = createAsyncThunk(
     } catch (error) {
       console.error("Error deleting workout schedule:", error);
       return rejectWithValue(error.message);
+    }
+  }
+);
+
+// COMMUNITIES
+
+export const fetchCommunities = createAsyncThunk(
+  "communities/fetchCommunities",
+  async () => {
+    try {
+      const response = await axiosInstance.get(`communities/`);
+      return response.data; // Return the response data directly
+    } catch (error) {
+      throw new Error("Failed to fetch templates: " + error.message);
+    }
+  }
+);
+
+// COMMUNITY POSTS
+export const fetchCommunityPosts = createAsyncThunk(
+  "communityPosts/fetchCommunityPosts",
+  async (community) => {
+    try {
+      const response = await axiosInstance.get(
+        `communities/${community.id}/posts/`
+      );
+      return response.data; // Return the response data directly
+    } catch (error) {
+      throw new Error("Failed to fetch templates: " + error.message);
+    }
+  }
+);
+
+export const fetchCommunityPost = createAsyncThunk(
+  "communityPosts/fetchCommunityPost",
+  async (communityPostId) => {
+    try {
+      const response = await axiosInstance.get(`posts/${communityPostId}/`);
+      return response.data; // Return the response data directly
+    } catch (error) {
+      throw new Error("Failed to fetch templates: " + error.message);
+    }
+  }
+);
+
+export const addCommunityPost = createAsyncThunk(
+  "communityPosts/addCommunityPost", // Action type string
+  async (data, { rejectWithValue }) => {
+    try {
+      // API call directly inside the createAsyncThunk
+      const response = await axiosInstance.post(
+        `communities/${data.community}/posts/`,
+        data
+      );
+      return response.data; // Return the response to be used in the fulfilled action
+    } catch (error) {
+      // Handle the error, sending it as the action payload
+      console.error("Error saving community post like:", error);
+      return rejectWithValue(error.message); // Reject with error message
+    }
+  }
+);
+
+export const addCommunityPostLike = createAsyncThunk(
+  "communityPosts/addCommunityPostLike", // Action type string
+  async (communitPostId, { rejectWithValue }) => {
+    try {
+      // API call directly inside the createAsyncThunk
+      const response = await axiosInstance.post(
+        `posts/${communitPostId}/likes/`
+      );
+      return response.data; // Return the response to be used in the fulfilled action
+    } catch (error) {
+      // Handle the error, sending it as the action payload
+      console.error("Error saving community post like:", error);
+      return rejectWithValue(error.message); // Reject with error message
+    }
+  }
+);
+
+export const deleteCommunityPostLike = createAsyncThunk(
+  "communityPosts/deleteCommunityPostLike", // Action type string
+  async (communitPostId, { rejectWithValue }) => {
+    console.log(communitPostId);
+    try {
+      // API call directly inside the createAsyncThunk
+      const response = await axiosInstance.delete(
+        `posts/${communitPostId}/likes/`
+      );
+      return response.data; // Return the response to be used in the fulfilled action
+    } catch (error) {
+      // Handle the error, sending it as the action payload
+      console.error("Error saving community post like:", error);
+      return rejectWithValue(error.message); // Reject with error message
+    }
+  }
+);
+
+// COMMUNITY POST COMMENTS
+
+export const fetchCommunityPostComments = createAsyncThunk(
+  "communityPostComments/fetchCommunityPostComments",
+  async (communityPost) => {
+    try {
+      const response = await axios.get(
+        `${baseURL}/posts/${communityPost.id}/comments/`
+      );
+      return response.data; // Return the response data directly
+    } catch (error) {
+      throw new Error("Failed to fetch templates: " + error.message);
+    }
+  }
+);
+
+// EDIT THIS FOR TOMORROW
+export const addCommunityPostComment = createAsyncThunk(
+  "communityPostComments/addCommunityPostComment", // Action type string
+  async ({ data, communityPostId }, { rejectWithValue }) => {
+    try {
+      // API call directly inside the createAsyncThunk
+      const response = await axiosInstance.post(
+        `posts/${communityPostId}/comments/`,
+        data
+      );
+      return response.data; // Return the response to be used in the fulfilled action
+    } catch (error) {
+      // Handle the error, sending it as the action payload
+      console.error("Error saving community post comment:", error);
+      return rejectWithValue(error.message); // Reject with error message
+    }
+  }
+);
+
+export const addCommunityPostCommentLike = createAsyncThunk(
+  "communityPostComments/addCommunityPostCommentLike", // Action type string
+  async (communityPostCommentId, { rejectWithValue }) => {
+    try {
+      // API call directly inside the createAsyncThunk
+      const response = await axiosInstance.post(
+        `comments/${communityPostCommentId}/likes/`
+      );
+      return response.data; // Return the response to be used in the fulfilled action
+    } catch (error) {
+      // Handle the error, sending it as the action payload
+      console.error("Error saving community post like:", error);
+      return rejectWithValue(error.message); // Reject with error message
+    }
+  }
+);
+
+export const deleteCommunityPostCommentLike = createAsyncThunk(
+  "communityPostComments/deleteCommunityPostLike", // Action type string
+  async (communityPostCommentId, { rejectWithValue }) => {
+    console.log(communityPostCommentId);
+    try {
+      // API call directly inside the createAsyncThunk
+      const response = await axiosInstance.delete(
+        `comments/${communityPostCommentId}/likes/`
+      );
+      return response.data; // Return the response to be used in the fulfilled action
+    } catch (error) {
+      // Handle the error, sending it as the action payload
+      console.error("Error saving community post like:", error);
+      return rejectWithValue(error.message); // Reject with error message
     }
   }
 );

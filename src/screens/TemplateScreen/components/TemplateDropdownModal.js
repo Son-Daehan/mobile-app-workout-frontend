@@ -24,7 +24,6 @@ const TemplateDropdownModal = ({
   });
 
   const handleDeleteTemplate = () => {
-    console.log(templateId);
     dispatch(deleteWorkoutTemplate(templateId));
     closeModal();
   };
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
 
   dropdownContainer: {
     position: "absolute",
-    backgroundColor: "white",
+    backgroundColor: "#1E2923",
     borderRadius: 6,
     padding: 5,
     shadowColor: "#000",
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
 
   dropdownItemText: {
     fontSize: 16,
-    color: "#333",
+    color: "white",
   },
 
   deleteText: {

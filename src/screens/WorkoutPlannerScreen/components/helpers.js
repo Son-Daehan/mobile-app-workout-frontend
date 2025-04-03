@@ -51,13 +51,26 @@ export const onGestureEvent = (translateX) => {
 
 export const onHandlerStateChange = (event, translateX, setStartDate) => {
   if (event.nativeEvent.state === State.END) {
-    // End of gesture
-    const direction = Math.sign(event.nativeEvent.translationX);
-    const newStartDate = new Date();
-    newStartDate.setDate(newStartDate.getDate() + direction);
-    setStartDate(newStartDate);
+    const swipeThreshold = 100; // Minimum swipe distance to trigger change
+    const translation = event.nativeEvent.translationX;
+
+    if (Math.abs(translation) > swipeThreshold) {
+      setStartDate((prevDate) => {
+        const newDate = new Date(prevDate);
+        if (translation > 0) {
+          // Swiped Right -> Move Back 7 Days
+          newDate.setDate(newDate.getDate() - 7);
+        } else {
+          // Swiped Left -> Move Forward 7 Days
+          newDate.setDate(newDate.getDate() + 7);
+        }
+        return newDate;
+      });
+    }
+
+    // Reset translateX smoothly
     Animated.spring(translateX, {
-      toValue: 0, // Smooth reset of translateX to 0
+      toValue: 0,
       useNativeDriver: true,
     }).start();
   }

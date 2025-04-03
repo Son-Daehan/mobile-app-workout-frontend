@@ -39,7 +39,7 @@ const WorkoutPlannerEditModal = ({
     console.log(dayKey);
     const newWorkoutSchedule = {
       scheduled_date: dayKey,
-      status: "pending",
+      status: "upcoming",
       completed_at: null,
       workout_template: template.id,
     };
@@ -66,7 +66,7 @@ const WorkoutPlannerEditModal = ({
               <Text style={styles.closeButtonText}>X</Text>
             </TouchableOpacity>
           </View>
-          <ScrollView>
+          <View>
             <View style={styles.workoutListContainer}>
               <WorkoutList
                 schedules={schedules}
@@ -105,7 +105,7 @@ const WorkoutPlannerEditModal = ({
                 </ScrollView>
               </View>
             </View>
-          </ScrollView>
+          </View>
         </View>
       </View>
     </Modal>
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: "90%",
-    backgroundColor: "#fff",
+    backgroundColor: "#1E2923",
     borderRadius: 10,
     padding: 20,
     shadowColor: "#000",
@@ -138,44 +138,39 @@ const styles = StyleSheet.create({
     alignContent: "center",
   },
   filterContainer: {
-    padding: 5, // Padding for the container
-    backgroundColor: "#f9f9f9", // Light background color
-    borderRadius: 8, // Rounded corners
-    shadowColor: "#000", // Shadow color for the container
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset
-    shadowOpacity: 0.1, // Shadow opacity
-    shadowRadius: 6, // Shadow radius
-    elevation: 5, // Elevation for Android
-    height: 210,
+    // padding: 5, // Padding for the container
+    // backgroundColor: "black", // Light background color
+    borderRadius: 5, // Rounded corners
   },
   filteredItemsContainer: {
     marginTop: 5,
     gap: 5,
+    height: 3 * 50,
+    overflow: "hidden",
   },
   filteredItemsTextContainer: {
     flexDirection: "row", // Keep this to align items horizontally
     justifyContent: "flex-start", // Ensure items are aligned to the start
     alignItems: "center", // Make sure items are centered vertically
     padding: 15, // Increase padding for more touch area
-    backgroundColor: "#f9f9f9", // Light background color
-    borderRadius: 8, // Rounded corners
-    shadowColor: "#000", // Shadow color for the container
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset
-    shadowOpacity: 0.1, // Shadow opacity
-    shadowRadius: 6, // Shadow radius
-    elevation: 5, // Elevation for Android
+    backgroundColor: "black", // Light background color
+    borderRadius: 5, // Rounded corners
     marginBottom: 5, // Add spacing between items
     width: "100%", // Ensure full width for better touch area
+    height: 50,
+    gap: 15,
   },
   filteredItemsText: {
     flex: 1, // Take up remaining space for the text
     fontSize: 16, // Larger text for better readability
+    color: "white",
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 15,
     textAlign: "center",
+    color: "white",
   },
   closeButton: {
     backgroundColor: "#ccc",
@@ -191,8 +186,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   workoutListContainer: {
-    // height: 100,
+    height: 3 * 50,
     // flex: 1,
+    marginBottom: 65,
   },
   addWorkoutContainer: {
     marginTop: 5,

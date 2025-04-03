@@ -49,9 +49,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 5,
+    // paddingHorizontal: 20,
+    paddingVertical: 10,
+    // width: "100%",
   },
-  title: { fontSize: 20, fontWeight: 600, color: "white" },
+  title: {
+    fontSize: 24,
+    fontWeight: 700,
+    color: "white",
+  },
   headerItem: { color: "white" },
   saveButton: { color: "green", fontSize: 18 },
 });
