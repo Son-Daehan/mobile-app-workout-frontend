@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchWorkoutHistory, addWorkoutHistory } from "../../services/api";
-
 const workoutHistorySlice = createSlice({
   name: "workoutHistory",
   initialState: {
@@ -9,10 +8,6 @@ const workoutHistorySlice = createSlice({
     error: null,
   },
   reducers: {
-    // addWorkoutHistory: (state, action) => {
-    //   const { historicalWorkout } = action.payload;
-    //   state.push(historicalWorkout);
-    // },
     updateWorkoutHistory: (state, action) => {},
     removeWorkoutHistory: (state, action) => {},
   },
@@ -30,20 +25,18 @@ const workoutHistorySlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(addWorkoutHistory.pending, (state) => {
-        state.loading = true; // Set loading to true when the async operation starts
+        state.loading = true; 
       })
       .addCase(addWorkoutHistory.fulfilled, (state, action) => {
-        state.loading = false; // Set loading to false when the request is successful
-        state.workoutHistory.push(action.payload); // Add the saved template to the list
+        state.loading = false; 
+        state.workoutHistory.push(action.payload); 
       })
       .addCase(addWorkoutHistory.rejected, (state, action) => {
-        state.loading = false; // Set loading to false when the request fails
-        state.error = action.payload || action.error.message; // Capture the error message
+        state.loading = false; 
+        state.error = action.payload || action.error.message; 
       });
   },
 });
-
 export const { updateWorkoutHistory, removeWorkoutHistory } =
   workoutHistorySlice.actions;
-
 export default workoutHistorySlice.reducer;

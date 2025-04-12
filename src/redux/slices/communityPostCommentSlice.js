@@ -4,13 +4,12 @@ import {
   addCommunityPostCommentLike,
   deleteCommunityPostCommentLike,
   fetchCommunityPostComments,
-} from "../../services/api"; // Import the async thunk from api.js
-
+} from "../../services/api"; 
 const communityPostCommentSlice = createSlice({
   name: "communityPostComments",
   initialState: {
     communityPostComments: [],
-    status: "idle", // idle, loading, succeeded, failed
+    status: "idle", 
     error: null,
   },
   reducers: {},
@@ -43,7 +42,6 @@ const communityPostCommentSlice = createSlice({
         } else {
           state.communityPostComments.push(action.payload);
         }
-        // EDIT THIS FOR TOMORROW
       })
       .addCase(addCommunityPostComment.rejected, (state, action) => {
         state.status = "failed";
@@ -54,13 +52,11 @@ const communityPostCommentSlice = createSlice({
       })
       .addCase(addCommunityPostCommentLike.fulfilled, (state, action) => {
         const { id } = action.payload;
-
         const comment = state.communityPostComments.find(
           (comment) => comment.id === id
         );
-
         if (comment) {
-          comment.like_count = (comment.like_count || 0) + 1; // Increment the like count
+          comment.like_count = (comment.like_count || 0) + 1; 
         }
         console.log("working");
         state.status = "succeeded";
@@ -77,11 +73,9 @@ const communityPostCommentSlice = createSlice({
         const comment = state.communityPostComments.find(
           (comment) => comment.id === id
         );
-
         if (comment) {
-          comment.like_count = (comment.like_count || 0) - 1; // Increment the like count
+          comment.like_count = (comment.like_count || 0) - 1; 
         }
-
         state.status = "succeeded";
       })
       .addCase(deleteCommunityPostCommentLike.rejected, (state, action) => {
@@ -90,5 +84,4 @@ const communityPostCommentSlice = createSlice({
       });
   },
 });
-
 export default communityPostCommentSlice.reducer;

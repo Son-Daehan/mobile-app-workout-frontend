@@ -1,3 +1,4 @@
+import { changeWorkoutStatus } from "../../../redux/slices/scheduleSlice";
 import { saveTemplate } from "../../../redux/slices/templateSlice";
 import { addWorkoutHistory } from "../../../services/api";
 
@@ -99,5 +100,6 @@ export const handleFinish = (template, dispatch, navigate) => {
     .catch((err) => {
       console.error("Error saving template:", err);
     });
+  dispatch(changeWorkoutStatus({ workoutId: workoutId, status: "Complete" }));
   navigate.goBack();
 };

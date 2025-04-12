@@ -4,7 +4,6 @@ import {
 	addWorkoutSchedule,
 	deleteWorkoutSchedule,
 } from "../../services/api";
-
 const scheduleSlice = createSlice({
 	name: "schedule",
 	initialState: {
@@ -13,30 +12,12 @@ const scheduleSlice = createSlice({
 		error: null,
 	},
 	reducers: {
-		// addWorkoutSchedule: (state, action) => {
-		//   const { date, workout } = action.payload;
-		//   const scheduleIndex = state.findIndex(
-		//     (schedule) => schedule.scheduledDate === date
-		//   );
-
-		//   if (scheduleIndex > -1) {
-		//     state[scheduleIndex].templates.push(workout);
-		//   } else {
-		//     state.push({
-		//       scheduledDate: date,
-		//       templates: [workout],
-		//     });
-		//   }
-		// },
 		updateWorkoutSchedule: (state, action) => {
 			const { dayKey, updatedWorkouts } = action.payload;
-
 			const scheduleIndex = state.findIndex(
 				(schedule) => schedule.scheduledDate === dayKey
 			);
-
 			if (scheduleIndex !== -1) {
-				// Update the templates for the specific schedule
 				state[scheduleIndex].templates = updatedWorkouts;
 			}
 		},
@@ -73,42 +54,36 @@ const scheduleSlice = createSlice({
 				state.error = action.error.message;
 			})
 			.addCase(addWorkoutSchedule.pending, (state) => {
-				state.loading = true; // Set loading to true when the async operation starts
+				state.loading = true; 
 			})
 			.addCase(addWorkoutSchedule.fulfilled, (state, action) => {
-				state.loading = false; // Set loading to false when the request is successful
-
-				state.schedules.push(action.payload); // Add the saved template to the list
+				state.loading = false; 
+				state.schedules.push(action.payload); 
 			})
 			.addCase(addWorkoutSchedule.rejected, (state, action) => {
-				state.loading = false; // Set loading to false when the request fails
-				state.error = action.payload || action.error.message; // Capture the error message
+				state.loading = false; 
+				state.error = action.payload || action.error.message; 
 			})
 			.addCase(deleteWorkoutSchedule.pending, (state) => {
-				state.loading = true; // Set loading to true when the async operation starts
+				state.loading = true; 
 			})
 			.addCase(deleteWorkoutSchedule.fulfilled, (state, action) => {
-				state.loading = false; // Set loading to false when the request is successful
+				state.loading = false; 
 				console.log(action.payload);
-
-				// Remove the schedule with the matching ID from the list
 				state.schedules = state.schedules.filter(
 					(schedule) => schedule.id !== action.payload
 				);
 			})
 			.addCase(deleteWorkoutSchedule.rejected, (state, action) => {
-				state.loading = false; // Set loading to false when the request fails
-				state.error = action.payload || action.error.message; // Capture the error message
+				state.loading = false; 
+				state.error = action.payload || action.error.message; 
 			});
 	},
 });
-
 export const {
-	// addWorkoutSchedule,
 	updateWorkoutSchedule,
 	changeWorkoutStatus,
 	addWorkoutsToDate,
 	deleteWorkoutsForDate,
 } = scheduleSlice.actions;
-
 export default scheduleSlice.reducer;

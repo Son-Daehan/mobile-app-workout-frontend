@@ -3,17 +3,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
 import { useDispatch } from "react-redux";
 import { addCommunityPostLike, deleteCommunityPostLike } from "../services/api";
-
 const LikeWidget = ({ item }) => {
   const dispatch = useDispatch();
-
   const handleLike = () => {
     dispatch(addCommunityPostLike(item.id));
   };
   const handleDislike = () => {
     dispatch(deleteCommunityPostLike(item.id));
   };
-
   return (
     <View style={styles.iconContainer}>
       <TouchableOpacity style={styles.iconLeftWrapper} onPress={handleLike}>
@@ -37,9 +34,7 @@ const LikeWidget = ({ item }) => {
     </View>
   );
 };
-
 export default LikeWidget;
-
 const styles = StyleSheet.create({
   iconContainer: {
     backgroundColor: "black",

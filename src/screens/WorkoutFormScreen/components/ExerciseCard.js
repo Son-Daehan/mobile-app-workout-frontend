@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
-import ExerciseSetEdit from "./ExerciseSetEdit";
+import React, { useRef } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { useSelector } from "react-redux";
 import { Icon } from "react-native-elements";
-import { TouchableOpacity } from "react-native";
+import ExerciseSetEdit from "./ExerciseSetEdit";
 
 const ExerciseCard = ({
   exercise,
   exerciseIndex,
   template,
   setTemplate,
-  currentExerciseIndex,
-  currentSet,
   edit = true,
+  onSettingsPress = () => {},
 }) => {
   const exercises = useSelector((state) => state.exercises.exercises);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 });
-  const [setStatus, setSetStatus] = useState(false);
+  const iconRef = useRef(null);
 
   const handleSetChange = (value, setIndex, type) => {
     setTemplate((prevState) => {
@@ -64,19 +67,6 @@ const ExerciseCard = ({
     });
   };
 
-  const handleDeleteExercise = () => {
-    setTemplate((prevState) => {
-      const updatedTemplate = { ...prevState };
-      const updatedExercises = [...updatedTemplate.exercises];
-
-      updatedExercises.splice(exerciseIndex, 1);
-      updatedTemplate.exercises = updatedExercises;
-
-      return updatedTemplate;
-    });
-    setDropdownVisible(false);
-  };
-
   const handleSetStatus = (setIndex) => {
     setTemplate((prevTemplate) => {
       const updatedTemplate = { ...prevTemplate };
@@ -84,42 +74,58 @@ const ExerciseCard = ({
       const currentExercise = { ...updatedExercises[exerciseIndex] };
       const updatedSets = [...currentExercise.sets];
 
-      // Check if reps or weight is null before updating status
       const currentSet = updatedSets[setIndex];
       if (currentSet.reps === null || currentSet.weight === null) {
         alert("Please fill in reps and weight before marking as complete.");
-        return prevTemplate; // Prevent status change if missing reps or weight
+        return prevTemplate;
       }
 
-      if (updatedSets[setIndex]) {
-        updatedSets[setIndex] = {
-          ...updatedSets[setIndex],
-          status: setStatus ? "Not Complete" : "Complete",
-        };
+      updatedSets[setIndex] = {
+        ...updatedSets[setIndex],
+        status:
+          updatedSets[setIndex].status === "Complete"
+            ? "Not Complete"
+            : "Complete",
+      };
 
-        currentExercise.sets = updatedSets;
-        updatedExercises[exerciseIndex] = currentExercise;
-        updatedTemplate.exercises = updatedExercises;
-      }
-      setSetStatus(!setStatus);
+      currentExercise.sets = updatedSets;
+      updatedExercises[exerciseIndex] = currentExercise;
+      updatedTemplate.exercises = updatedExercises;
 
       return updatedTemplate;
     });
   };
 
+  const handleDropdownPress = () => {
+    setTimeout(() => {
+      if (
+        iconRef.current &&
+        typeof iconRef.current.measureInWindow === "function"
+      ) {
+        iconRef.current.measureInWindow((x, y, width, height) => {
+          const position = {
+            x: x - 60,
+            y: y + height + 8,
+          };
+          onSettingsPress(position);
+        });
+      }
+    }, 0);
+  };
+
   return (
-    <React.Fragment>
+    <>
       <View style={styles.card}>
         <View style={styles.headerContainer}>
           <Text style={styles.title}>
             {exercise?.exercise?.name ||
               exercises?.find((e) => e?.id === exercise?.exercise)?.name}
           </Text>
-          <TouchableOpacity
-            onPress={(e) => setDropdownVisible(!dropdownVisible)}
-          >
-            <Icon style={styles.headerIcon} name="settings" />
-          </TouchableOpacity>
+          <View ref={iconRef} collapsable={false} onLayout={() => {}}>
+            <TouchableOpacity onPress={handleDropdownPress}>
+              <Icon name="settings" color="white" />
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View style={[styles.row, styles.headerRow]}>
@@ -176,23 +182,17 @@ const ExerciseCard = ({
               </View>
               {!edit && (
                 <View style={styles.statusCell}>
-                  {set?.status === "Complete" ? (
-                    <Icon
-                      name="check-circle"
-                      type="material"
-                      color="black"
-                      size={30}
-                      onPress={() => handleSetStatus(setIndex)}
-                    />
-                  ) : (
-                    <Icon
-                      name="radio-button-unchecked"
-                      type="material"
-                      color="gray"
-                      size={30}
-                      onPress={() => handleSetStatus(setIndex)}
-                    />
-                  )}
+                  <Icon
+                    name={
+                      set?.status === "Complete"
+                        ? "check-circle"
+                        : "radio-button-unchecked"
+                    }
+                    type="material"
+                    color={set?.status === "Complete" ? "black" : "gray"}
+                    size={30}
+                    onPress={() => handleSetStatus(setIndex)}
+                  />
                 </View>
               )}
             </View>
@@ -202,22 +202,7 @@ const ExerciseCard = ({
           <Button title="Add Set" onPress={handleAddSet} />
         </View>
       </View>
-      {dropdownVisible && (
-        <View
-          style={[
-            styles.dropdownContainer,
-            { top: dropdownPosition.y, left: dropdownPosition.x },
-          ]}
-        >
-          <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={handleDeleteExercise}
-          >
-            <Text style={{ color: "black" }}>Delete</Text>
-          </TouchableOpacity>
-        </View>
-      )}
-    </React.Fragment>
+    </>
   );
 };
 
@@ -239,9 +224,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "white",
-  },
-  headerIcon: {
     color: "white",
   },
   row: {
@@ -282,12 +264,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   weightCell: {
-    // flex: 1,
     width: 65,
     textAlign: "center",
   },
   repsCell: {
-    // flex: 1,
     width: 65,
     textAlign: "center",
   },
@@ -310,18 +290,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: "#ccc",
     marginTop: 10,
-  },
-  dropdownContainer: {
-    position: "absolute",
-    backgroundColor: "white",
-    borderRadius: 6,
-    elevation: 5,
-    zIndex: 999,
-  },
-  dropdownItem: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ddd",
   },
 });
 

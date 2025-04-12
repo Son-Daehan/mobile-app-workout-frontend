@@ -2,16 +2,14 @@ import {
   GoogleSignin,
   statusCodes,
 } from "@react-native-google-signin/google-signin";
-
 GoogleSignin.configure({
-  webClientId: "YOUR_GOOGLE_WEB_CLIENT_ID", // This is the OAuth 2.0 client ID for web applications
+  webClientId: "YOUR_GOOGLE_WEB_CLIENT_ID", 
 });
-
 const loginGoogle = async () => {
   try {
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
-    console.log(userInfo); // userInfo contains the user's data
+    console.log(userInfo); 
   } catch (error) {
     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
       console.log("User cancelled the login");
@@ -22,9 +20,7 @@ const loginGoogle = async () => {
     }
   }
 };
-
 import AppleAuthentication from "@invertase/react-native-apple-authentication";
-
 const loginApple = async () => {
   try {
     const appleAuthRequestResponse = await AppleAuthentication.signInAsync({
@@ -33,8 +29,6 @@ const loginApple = async () => {
         AppleAuthentication.AppleAuthenticationScope.EMAIL,
       ],
     });
-
-    // Send this authorization code and identity token to your backend
     const { identityToken, authorizationCode } = appleAuthRequestResponse;
     console.log(identityToken, authorizationCode);
   } catch (error) {

@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCommunities } from "../../services/api"; // Import the async thunk from api.js
-
+import { fetchCommunities } from "../../services/api"; 
 const communitySlice = createSlice({
   name: "communities",
   initialState: {
     communities: [],
-    status: "idle", // idle, loading, succeeded, failed
+    status: "idle", 
     error: null,
   },
   reducers: {},
@@ -24,5 +23,4 @@ const communitySlice = createSlice({
       });
   },
 });
-
 export default communitySlice.reducer;

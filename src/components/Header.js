@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-
 const SubHeader = ({ title }) => {
   return (
     <View style={styles.container}>
@@ -10,18 +9,12 @@ const SubHeader = ({ title }) => {
     </View>
   );
 };
-
 export default SubHeader;
-
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    // minHeight: "30px",
     backgroundColor: "#000000",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   headerContainer: {},
   headerTitle: {

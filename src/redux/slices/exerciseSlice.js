@@ -1,12 +1,10 @@
-// exerciseSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchExercises } from "../../services/api"; // Import the async thunk from api.js
-
+import { fetchExercises } from "../../services/api"; 
 const exerciseSlice = createSlice({
   name: "exercises",
   initialState: {
     exercises: [],
-    status: "idle", // idle, loading, succeeded, failed
+    status: "idle", 
     error: null,
   },
   reducers: {},
@@ -25,5 +23,4 @@ const exerciseSlice = createSlice({
       });
   },
 });
-
 export default exerciseSlice.reducer;

@@ -1,13 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
-
 const ReplyWidget = ({ item, setCommunityPostCommentId, setIsFocused }) => {
   const handleReply = () => {
     setCommunityPostCommentId(item);
     setIsFocused(true);
   };
-
   return (
     <TouchableOpacity style={styles.container} onPress={handleReply}>
       <Icon name="reply" type="material" color="gray" size={14} />
@@ -15,12 +13,9 @@ const ReplyWidget = ({ item, setCommunityPostCommentId, setIsFocused }) => {
     </TouchableOpacity>
   );
 };
-
 export default ReplyWidget;
-
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: "black",
     flexDirection: "row",
     borderColor: "gray",
     borderRadius: 10,

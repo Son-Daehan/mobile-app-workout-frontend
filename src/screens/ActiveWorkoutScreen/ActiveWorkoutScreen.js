@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { View, ScrollView, StyleSheet } from "react-native";
+import {
+  View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Modal,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import ActiveWorkoutHeader from "./components/ActiveWorkoutHeader";
 import AddExerciseModal from "../WorkoutFormScreen/components/AddExerciseModal";
 import { useNavigation } from "@react-navigation/native";
 import ActiveWorkoutFooter from "./components/ActiveWorkoutFooter";
-import ExerciseNavigatorWithTimer from "./components/ExerciseNavigatorWithTimer";
 import { handleSave } from "./components/helpers";
 import ExerciseCard from "../WorkoutFormScreen/components/ExerciseCard";
 import Timer from "./components/Timer";
@@ -20,8 +26,12 @@ const ActiveWorkoutScreen = ({ route }) => {
 
   const [addExerciseModalVisible, setAddExerciseModalVisible] = useState(false);
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
-  const [currentSet, setCurrentSet] = useState(1); // Default to set 1
+  const [currentSet, setCurrentSet] = useState(1);
   const [template, setTemplate] = useState([]);
+
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 });
+  const [selectedExerciseIndex, setSelectedExerciseIndex] = useState(null);
 
   useEffect(() => {
     const currentTemplate = templates.find((t) => t.id === templateId);
@@ -39,6 +49,23 @@ const ActiveWorkoutScreen = ({ route }) => {
     }
   }, [templates]);
 
+  const handleSettingsPress = (position, index) => {
+    setDropdownPosition(position);
+    setSelectedExerciseIndex(index);
+    setDropdownVisible(true);
+  };
+
+  const handleDeleteExercise = () => {
+    setTemplate((prevState) => {
+      const updatedTemplate = { ...prevState };
+      const updatedExercises = [...updatedTemplate.exercises];
+      updatedExercises.splice(selectedExerciseIndex, 1);
+      updatedTemplate.exercises = updatedExercises;
+      return updatedTemplate;
+    });
+    setDropdownVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <ActiveWorkoutHeader
@@ -50,43 +77,6 @@ const ActiveWorkoutScreen = ({ route }) => {
         templateId={templateId}
         dispatch={dispatch}
       />
-      {/* <ExerciseNavigatorWithTimer
-        currentExerciseIndex={currentExerciseIndex}
-        totalExercises={template?.exercises?.length}
-        exercises={template?.exercises || []}
-        currentSet={currentSet}
-        onPrevious={() => {
-          if (currentSet > 1) {
-            setCurrentSet(currentSet - 1);
-          } else if (currentExerciseIndex > 0) {
-            setCurrentSet(
-              template.exercises[currentExerciseIndex - 1]?.sets?.length || 1
-            );
-            setCurrentExerciseIndex(currentExerciseIndex - 1);
-          }
-        }}
-        onNext={() => {
-          setTemplate((prevTemplate) => {
-            const updatedTemplate = { ...prevTemplate };
-            const updatedExercises = [...updatedTemplate.exercises];
-            const currentExercise = updatedExercises[currentExerciseIndex];
-
-            if (currentSet <= currentExercise?.sets?.length) {
-              // currentExercise.sets[currentSet - 1].status = "Complete";
-            }
-            updatedTemplate.exercises = updatedExercises;
-            return updatedTemplate;
-          });
-
-          const currentExercise = template.exercises[currentExerciseIndex];
-          if (currentSet < currentExercise?.sets?.length) {
-            setCurrentSet(currentSet + 1);
-          } else if (currentExerciseIndex < template.exercises.length - 1) {
-            setCurrentSet(1);
-            setCurrentExerciseIndex(currentExerciseIndex + 1);
-          }
-        }}
-      /> */}
       <Timer />
       <ScrollView showsVerticalScrollIndicator={false}>
         {template?.exercises?.map((exercise, index) => (
@@ -99,18 +89,50 @@ const ActiveWorkoutScreen = ({ route }) => {
             template={template}
             setTemplate={setTemplate}
             edit={false}
+            onSettingsPress={(position) => handleSettingsPress(position, index)}
           />
         ))}
         <ActiveWorkoutFooter
           setAddExerciseModalVisible={setAddExerciseModalVisible}
         />
       </ScrollView>
+
       <AddExerciseModal
         modalVisible={addExerciseModalVisible}
         closeModal={() => setAddExerciseModalVisible(false)}
         exercises={exercises}
         setTemplate={setTemplate}
       />
+
+      <Modal
+        transparent
+        visible={dropdownVisible}
+        animationType="fade"
+        onRequestClose={() => setDropdownVisible(false)}
+      >
+        <TouchableOpacity
+          style={styles.modalOverlay}
+          activeOpacity={1}
+          onPressOut={() => setDropdownVisible(false)}
+        >
+          <View
+            style={{
+              position: "absolute",
+              top: dropdownPosition.y,
+              left: dropdownPosition.x,
+            }}
+          >
+            <View style={styles.dropdownContainer}>
+              <TouchableOpacity
+                style={styles.dropdownItem}
+                onPress={handleDeleteExercise}
+              >
+                <Text style={{ color: "black" }}>Delete</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };
@@ -120,6 +142,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#000000",
     padding: 20,
+  },
+  dropdownContainer: {
+    backgroundColor: "white",
+    borderRadius: 6,
+    elevation: 5,
+    padding: 10,
+  },
+  dropdownItem: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
+  },
+  modalOverlay: {
+    flex: 1,
   },
 });
 

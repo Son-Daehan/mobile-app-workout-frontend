@@ -5,15 +5,14 @@ import {
   fetchCommunityPosts,
   fetchCommunityPost,
   addCommunityPost,
-} from "../../services/api"; // Import the async thunk from api.js
-
+} from "../../services/api"; 
 const communityPostSlice = createSlice({
   name: "communityPosts",
   initialState: {
     communityPost: {},
     communityPosts: [],
     communityPostLikes: {},
-    status: "idle", // idle, loading, succeeded, failed
+    status: "idle", 
     error: null,
   },
   reducers: {},
@@ -57,11 +56,9 @@ const communityPostSlice = createSlice({
       })
       .addCase(addCommunityPostLike.fulfilled, (state, action) => {
         const { id } = action.payload;
-
         const post = state.communityPosts.find((post) => post.id === id);
-
         if (post) {
-          post.like_count = (post.like_count || 0) + 1; // Increment the like count
+          post.like_count = (post.like_count || 0) + 1; 
         }
         state.status = "succeeded";
       })
@@ -75,11 +72,9 @@ const communityPostSlice = createSlice({
       .addCase(deleteCommunityPostLike.fulfilled, (state, action) => {
         const { id } = action.payload;
         const post = state.communityPosts.find((post) => post.id === id);
-
         if (post) {
-          post.like_count = (post.like_count || 0) - 1; // Increment the like count
+          post.like_count = (post.like_count || 0) - 1; 
         }
-
         state.status = "succeeded";
       })
       .addCase(deleteCommunityPostLike.rejected, (state, action) => {
@@ -88,5 +83,4 @@ const communityPostSlice = createSlice({
       });
   },
 });
-
 export default communityPostSlice.reducer;

@@ -6,17 +6,14 @@ import {
   addCommunityPostCommentLike,
   deleteCommunityPostCommentLike,
 } from "../services/api";
-
 const ReplyLikeWidget = ({ item }) => {
   const dispatch = useDispatch();
-
   const handleLike = () => {
     dispatch(addCommunityPostCommentLike(item.id));
   };
   const handleDislike = () => {
     dispatch(deleteCommunityPostCommentLike(item.id));
   };
-
   return (
     <View style={styles.iconContainer}>
       <TouchableOpacity style={styles.iconLeftWrapper} onPress={handleLike}>
@@ -35,17 +32,13 @@ const ReplyLikeWidget = ({ item }) => {
     </View>
   );
 };
-
 export default ReplyLikeWidget;
-
 const styles = StyleSheet.create({
   iconContainer: {
-    // backgroundColor: "black",
     flexDirection: "row",
     borderColor: "gray",
     borderRadius: 10,
     borderWidth: ".5",
-    // padding: 5,
     alignItems: "center",
     gap: 5,
   },

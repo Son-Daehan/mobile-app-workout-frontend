@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
-
 const CommentWidget = ({ item }) => {
   return (
     <TouchableOpacity style={styles.container}>
@@ -10,9 +9,7 @@ const CommentWidget = ({ item }) => {
     </TouchableOpacity>
   );
 };
-
 export default CommentWidget;
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "black",

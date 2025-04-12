@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { signupUser, loginUser } from "../../services/api";
-
 const initialState = {
   isAuthenticated: false,
   accessToken: null,
@@ -8,14 +7,13 @@ const initialState = {
   status: "idle",
   error: null,
 };
-
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
     loginSuccess: (state, action) => {
       state.isAuthenticated = true;
-      state.accessToken = action.payload.accessToken; // Store the token
+      state.accessToken = action.payload.accessToken; 
     },
     logout: (state) => {
       state.isAuthenticated = false;
@@ -50,6 +48,5 @@ const authSlice = createSlice({
       });
   },
 });
-
 export const { loginSuccess, logout } = authSlice.actions;
 export default authSlice.reducer;
